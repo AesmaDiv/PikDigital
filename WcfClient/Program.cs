@@ -2,6 +2,7 @@
 using System.Text;
 using System.ServiceModel;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
 
 namespace WcfClient {
     class Program {
@@ -11,7 +12,11 @@ namespace WcfClient {
         [ServiceContract]
         public interface IAuthenticator {
             [OperationContract]
-            bool Authenticate(string login, string pwd_hash);
+            bool Authenticate(string json_userdata);
+        }
+        public class UserData {
+            public string Login;
+            public string PasswordHash;
         }
         /// <summary>
         /// Точка входа
@@ -50,8 +55,9 @@ namespace WcfClient {
         /// <param name="authenticator">канал клиента</param>
         /// <returns>результат аутентификации</returns>
         private static bool TryToLogin(IAuthenticator authenticator) {
-            Tuple<string, string> login_data = ReadLoginData();
-            bool result = authenticator.Authenticate(login_data.Item1, GetHash(login_data.Item2));
+            UserData user_data = ReadLoginData();
+            string json_userdata = JsonConvert.SerializeObject(user_data);
+            bool result = authenticator.Authenticate(json_userdata);
             Console.WriteLine(
                 result ?
                 "SUCCESS:: You are loged in." :
@@ -64,14 +70,15 @@ namespace WcfClient {
         /// Получение пары логин-пароль из консоли
         /// </summary>
         /// <returns>кортеж(логин, пароль)</returns>
-        private static Tuple<string , string> ReadLoginData() {
+        private static UserData ReadLoginData() {
+            UserData result = new UserData();
+            
             Console.Write("login:");
-            var login = Console.ReadLine();
-
+            result.Login = Console.ReadLine();
             Console.Write("password:");
-            var password = Console.ReadLine();
+            result.PasswordHash = GetHash(Console.ReadLine());
 
-            return Tuple.Create(login, password);
+            return result;
         }
         /// <summary>
         /// Получение хеша строки

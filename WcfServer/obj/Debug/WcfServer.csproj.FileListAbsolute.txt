@@ -16,3 +16,6 @@ D:\Projects\CSharp\WcfService\WcfServer\obj\Debug\WcfServer.csproj.AssemblyRefer
 D:\Projects\CSharp\WcfService\WcfServer\obj\Debug\WcfServer.csproj.CoreCompileInputs.cache
 D:\Projects\CSharp\WcfService\WcfServer\obj\Debug\WcfServer.exe
 D:\Projects\CSharp\WcfService\WcfServer\obj\Debug\WcfServer.pdb
+D:\Projects\CSharp\WcfService\WcfServer\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\CSharp\WcfService\WcfServer\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\CSharp\WcfService\WcfServer\obj\Debug\WcfServer.csproj.CopyComplete
