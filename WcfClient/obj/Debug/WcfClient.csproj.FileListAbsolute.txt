@@ -1,0 +1,14 @@
+C:\!!!Work\TEST_EXERCISE\WcfService\WcfClient\bin\Debug\WcfClient.exe.config
+C:\!!!Work\TEST_EXERCISE\WcfService\WcfClient\bin\Debug\WcfClient.exe
+C:\!!!Work\TEST_EXERCISE\WcfService\WcfClient\bin\Debug\WcfClient.pdb
+C:\!!!Work\TEST_EXERCISE\WcfService\WcfClient\obj\Debug\WcfClient.csprojAssemblyReference.cache
+C:\!!!Work\TEST_EXERCISE\WcfService\WcfClient\obj\Debug\WcfClient.csproj.CoreCompileInputs.cache
+C:\!!!Work\TEST_EXERCISE\WcfService\WcfClient\obj\Debug\WcfClient.exe
+C:\!!!Work\TEST_EXERCISE\WcfService\WcfClient\obj\Debug\WcfClient.pdb
+D:\Projects\CSharp\WcfService\WcfClient\bin\Debug\WcfClient.exe.config
+D:\Projects\CSharp\WcfService\WcfClient\bin\Debug\WcfClient.exe
+D:\Projects\CSharp\WcfService\WcfClient\bin\Debug\WcfClient.pdb
+D:\Projects\CSharp\WcfService\WcfClient\obj\Debug\WcfClient.csproj.AssemblyReference.cache
+D:\Projects\CSharp\WcfService\WcfClient\obj\Debug\WcfClient.csproj.CoreCompileInputs.cache
+D:\Projects\CSharp\WcfService\WcfClient\obj\Debug\WcfClient.exe
+D:\Projects\CSharp\WcfService\WcfClient\obj\Debug\WcfClient.pdb
