@@ -19,7 +19,7 @@ namespace WcfServer {
         /// </summary>
         public class UserData {
             public string Login;
-            public string Password_Hash;
+            public string PasswordHash;
         }
         /// <summary>
         /// Основная функция сервиса: Аутентификация
@@ -28,16 +28,16 @@ namespace WcfServer {
         /// <param name="hash">пароль</param>
         /// <returns>результат проверки соответствия с БД</returns>
         public bool Authenticate(string json_userdata) {
-            UserData ud = JsonConvert.DeserializeObject<UserData>(json_userdata);
-            var db_hash  = DBController.GetInstance().ReadUserData(ud.Login);
+            UserData user_data = JsonConvert.DeserializeObject<UserData>(json_userdata);
+            var password_hash  = DBController.GetInstance().ReadUserData(user_data.Login);
             // Вывод информации в консоль, для проверки
-            // pw - хэш введеного, db - хэш в БД
-            Console.WriteLine("user: {0}", ud.Login);
-            Console.WriteLine("pw: {0}", ud.Password_Hash);
-            Console.WriteLine("db: {0}", db_hash);
+            // userdata_pwd - хэш введеного, database_pwd - хэш в БД
+            Console.WriteLine("user: {0}", user_data.Login);
+            Console.WriteLine("userdata_pwd: {0}", user_data.PasswordHash);
+            Console.WriteLine("database_pwd: {0}", password_hash);
             Console.WriteLine("Press Enter to exit...");
 
-            return (db_hash != null) && (ud.Password_Hash == db_hash);
+            return user_data.PasswordHash == password_hash;
         }
     }
 }

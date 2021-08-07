@@ -34,7 +34,7 @@ namespace WcfServer {
                 if (connection?.State == System.Data.ConnectionState.Open) {
                     SqlCommand command = new SqlCommand(
                         String.Format(
-                            "Select Hash from Users where Name='{0}'",
+                            "Select Hash from dbo.Users where Name='{0}'",
                             user_name
                         ),
                         connection);

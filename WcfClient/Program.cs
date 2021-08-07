@@ -14,6 +14,9 @@ namespace WcfClient {
             [OperationContract]
             bool Authenticate(string json_userdata);
         }
+        /// <summary>
+        /// Аутентификационные данные пользователя
+        /// </summary>
         public class UserData {
             public string Login;
             public string PasswordHash;
@@ -26,13 +29,11 @@ namespace WcfClient {
             Console.WriteLine("CLIENT started.");
 
             var channel = CreateChannel<IAuthenticator>(new Uri("http://localhost:5050/Authenticate"));
-            bool success = false;
-            while (!success) { 
-                success = TryToLogin(channel);
-                if (success) break;
+            do {
+                if (TryToLogin(channel)) break;
                 Console.WriteLine("Press 'Enter' to try again or 'q' to interrupt.");
-                success |= Console.ReadLine() == "q";
-            }
+            } while (Console.ReadLine() != "q");
+            
             Console.WriteLine("Press 'Enter' to exit.");
             Console.ReadLine();
         }
@@ -62,7 +63,7 @@ namespace WcfClient {
                 result ?
                 "SUCCESS:: You are loged in." :
                 "FAILED:: Login or password is incorrent."
-                );
+            );
 
             return result;
         }
